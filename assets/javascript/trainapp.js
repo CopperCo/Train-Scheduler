@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   firebase.initializeApp(config);
 
-  var dataRef = firebase.database();
+  var database = firebase.database();
 
   // Initial Values
   var trainName = "";
@@ -45,7 +45,7 @@ $(document).ready(function() {
       .trim();
 
     // Code for the push
-    dataRef.ref().push({
+    database.ref().push({
       trainName: trainName,
       destination: destination,
       firstTrainTime: firstTrainTime,
@@ -53,4 +53,27 @@ $(document).ready(function() {
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
   });
+
+  // Firebase watcher + table row loader
+  database.ref().on(
+    "child_added",
+    function(childSnapshot) {
+      $(".trainTable").append(
+        "<tr><td class='trainName'> " +
+          childSnapshot.val().trainName +
+          " </td><td class='destination'> " +
+          childSnapshot.val().destination +
+          " </td><td class='frequency'> " +
+          childSnapshot.val().frequency +
+          " </td><td class='firstTrainTime'> " +
+          childSnapshot.val().firstTrainTime +
+          " </td></tr>"
+      );
+
+      // Handle the errors
+    },
+    function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    }
+  );
 });
