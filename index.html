@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Where is the Train?</title>
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+  <!-- Semantic Style Sheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+
+
+
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment">
+
+      <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="toc item">
+            <i class=""></i>
+          </a>
+          <a class="active item">Schedule</a>
+          <div class="right item">
+            <a href="#addATrain" class="ui inverted button">Add a Train
+              <img style="height: 25px" src="assets/images/train-icon.png" alt="Train Icon"> </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui text container">
+        <h1 class="ui inverted header">
+          Where is the Train?
+        </h1>
+        <h2>Do whatever you want when you want to.</h2>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- main body adea -->
+  <div class="ui container">
+
+    <!-- Current Time and Blurb -->
+    <div class="ui grid container">
+      <div class="six wide column">
+        <p>Current Time:
+          <span id="currentTime"></span>
+        </p>
+      </div>
+      <div class="six wide column">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde impedit quas magnam quaerat vel eveniet. Fuga excepturi
+          delectus eum soluta vel.</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="ui striped table">
+      <thead>
+        <tr>
+          <th>Train Name
+            <img id="icons" src="assets/images/icons/train-icon.png" alt="Train"> </th>
+          <th>Destination
+            <img id="icons" src="assets/images/icons/map-icon.png" alt="map">
+          </th>
+          <th>Frequency (min)
+            <img id="icons" src="assets/images/icons/stopwatch-icon.png" alt="frequency">
+          </th>
+          <th>Next Arrival
+            <img id="icons" src="assets/images/icons/calendar-icon.png" alt="calendar">
+          </th>
+          <th>Minutes Away
+            <img id="icons" src="assets/images/icons/watch-icon.png" alt="watch">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Milton Go-45</td>
+          <td>Toronto Union</td>
+          <td>25</td>
+          <td>6:25</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add a train form -->
+    <section id="addATrain">
+      <div class="ui equal width form">
+        <div class="fields">
+          <div class="field">
+            <label>Train Name</label>
+            <input type="text" placeholder="MiWay Train 34a">
+          </div>
+          <div class="field">
+            <label>Destination</label>
+            <input type="text" placeholder="Untion Station">
+          </div>
+        </div>
+        <div class="fields ">
+          <div class="field">
+            <label>First Train Time</label>
+            <input type="time" placeholder="Last Name">
+          </div>
+          <div class="field">
+            <label>Frequency</label>
+            <input type="number" placeholder="15">
+          </div>
+
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+      </div>
+    </section>
+
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/en-ca.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+
+</body>
+
+</html>
