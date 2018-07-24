@@ -1,5 +1,10 @@
 moment().format("MMMM Do YYYY, h:mm:ss a");
 
+function nextTrainArrival() {
+  var currentTime = moment().format("hh:mm:ss A");
+  console.log(currentTime);
+}
+
 $(document).ready(function() {
   $("#currentTime").append(moment().format("hh:mm:ss A"));
   console.log("ready!");
