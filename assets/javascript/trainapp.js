@@ -1,5 +1,19 @@
-// Shows current time (Military Style 24)
-$('#currentTime').append(moment().format('HH:mm'));
+$(document).ready(function() {
+  $('#currentTime').text(moment().format('LTS'));
+});
+
+//Updating the time and table every minute
+function updateTimer() {
+  $('#currentTime').text(moment().format('LTS'));
+}
+
+var timer = setInterval(updateTimer, 1000);
+
+function updateTimer() {
+  $('#currentTime').text(moment().format('LTS'));
+}
+
+var timer = setInterval(updateTimer, 1000);
 
 // Initialize Firebase
 var config = {
@@ -16,10 +30,10 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // Initial Values
-var trainName = '';
-var destination = '';
-var firstTrainTime = '';
-var frequency = '';
+var trainName;
+var destination;
+var firstTrainTime;
+var frequency;
 
 // Capture Form Values
 $('#trainSubmission').on('click', function(event) {
@@ -67,9 +81,10 @@ database.ref().on(
     var trainDest = childSnapshot.val().destination;
     var trainFrequency = childSnapshot.val().frequency;
     var theFirstTrain = childSnapshot.val().firstTrainTime;
+    var now = moment();
 
     var timeRemainder =
-      moment().diff(moment.unix(theFirstTrain), 'minutes') % trainFrequency;
+      now.diff(moment.unix(theFirstTrain), 'minutes') % trainFrequency;
     var timeInMin = trainFrequency - timeRemainder;
 
     var tArrival = moment()
